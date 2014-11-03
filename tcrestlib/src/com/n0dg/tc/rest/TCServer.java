@@ -39,8 +39,26 @@ public class TCServer {
 		return result;
 	}
 
+	public Map<String, String> getConfigurations(String aProjectName) {
+		String url = requestsProvider.getConfigurations(aProjectName);
+
+		Map<String, String> result = null;
+
+		if (url.length() > 0) {
+			Document tcResult = getDocument(url);
+
+			if (tcResult != null) {
+				result = TCDocumentParserFactory.getParser(TCConfigurationsPathParser.TC_RESOURCE).parse(tcResult);
+			}
+		}
+		return result;
+	}
+
 	private Document getDocument(String url) {
 		Executor reqExec = Executor.newInstance().auth(authScope, credentials);
+
+		// encode url for http
+
 		Request req = Request.Get(url);
 		Document result = null;
 		try {

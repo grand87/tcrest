@@ -10,9 +10,9 @@ import org.w3c.dom.NodeList;
 
 import com.n0dg.tc.rest.TCDocumentParserFactory.DocumentParser;
 
-public class TCProjectsPathParser implements DocumentParser {
+public class TCConfigurationsPathParser implements DocumentParser {
 
-	static final String TC_RESOURCE = "projects";
+	static final String TC_RESOURCE = "buildTypes";
 
 	@Override
 	public Map<String, String> parse(Document aDoc) {

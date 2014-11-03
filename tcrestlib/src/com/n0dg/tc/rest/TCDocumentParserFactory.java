@@ -16,6 +16,7 @@ public class TCDocumentParserFactory {
 	static {
 		parsers = new HashMap<String, DocumentParser>();
 		parsers.put(TCProjectsPathParser.TC_RESOURCE, new TCProjectsPathParser());
+		parsers.put(TCConfigurationsPathParser.TC_RESOURCE, new TCConfigurationsPathParser());
 	}
 
 	public static DocumentParser getParser(String resourcePath)
